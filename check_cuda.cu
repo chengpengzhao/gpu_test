@@ -100,9 +100,16 @@ int main() {
     else
       printf("  CUDA Cores: Unknown\n");
 
-    printf("  Max Threads per Multiprocessor: %d\n",
+    printf("  Max Threads per Multiprocessor/SM: %d\n",
            prop.maxThreadsPerMultiProcessor);
+    printf("  Max Blocks per Multiprocessor/SM: %d\n",
+           prop.maxBlocksPerMultiProcessor);
+    printf("  Shared Memory per Multiprocessor/SM: %.2f KB\n",
+           prop.sharedMemPerMultiprocessor / (1024.0));
+    printf("  Shared Memory per Block/SM: %.2f KB\n",
+           prop.sharedMemPerBlock / (1024.0));
     printf("  Max Threads per Block: %d\n", prop.maxThreadsPerBlock);
+    printf("  Max regs per SM: %d\n", prop.regsPerBlock);
     printf("  GPU Clock: %.2f MHz\n", prop.clockRate / 1000.0f);
     printf("  Memory Clock: %.2f MHz\n", prop.memoryClockRate / 1000.0f);
     printf("  Total Memory: %.2f MiB\n",

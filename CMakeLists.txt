@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.20)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 project(test_cuda LANGUAGES CUDA C CXX)
 set(CMAKE_CUDA_ARCHITECTURES 70)
-
-set(SRCS check_cuda.cu)
+set(SRCS check_cuda.cu test_pinned_memory.cu)
 
 foreach(SRC_FILE IN LISTS SRCS)
   message("Processing source file: ${SRC_FILE}")
